@@ -19,7 +19,7 @@
 .env.production.local
 
 # SECRETS
-.secret.js
+secret.js
 
 npm-debug.log*
 yarn-debug.log*
