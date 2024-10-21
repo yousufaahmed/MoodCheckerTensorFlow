@@ -19,6 +19,7 @@
 .env.production.local
 
 # SECRETS
+.env
 secret.js
 
 npm-debug.log*

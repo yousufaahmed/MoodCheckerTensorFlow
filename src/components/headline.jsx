@@ -6,10 +6,10 @@ function Headline({headline}) {
   
     return (
       <div className="headline">
-        <h1>
+        <h1 className="">
         {headline}
+        <Badge className="hdBadge" bg="danger">New</Badge>
         </h1>
-        <Badge bg="danger">New</Badge>
       </div>
     );
   }

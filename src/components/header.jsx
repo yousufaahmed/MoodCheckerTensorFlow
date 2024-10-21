@@ -6,7 +6,7 @@ import '../index.css';
 function Header() {
   
     return (
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">Mood Checker</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

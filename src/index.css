@@ -24,3 +24,31 @@ code {
 .headlineText{
   margin-right: 25px;
 }
+
+.textH {
+  text-align: left;
+}
+
+.hdBadge {
+  padding-left: 100px;
+}
+
+.faces{
+  text-align: center;
+  display:flex; 
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  vertical-align: middle;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+#mood{
+  font-size: 300px;
+}
+
+#moodText{
+  font-size: 50px;
+}

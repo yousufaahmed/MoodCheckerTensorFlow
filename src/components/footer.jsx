@@ -6,7 +6,7 @@ import '../index.css';
 function Footer() {
   
     return (
-      <Navbar fixed='bottom' expand="lg" className="bg-body-tertiary">
+      <Navbar sticky='bottom' expand="lg" className="bg-body-tertiary">
         <Container>
             <div className='text-center p-3'>
                 &copy; {new Date().getFullYear()} Copyright:{' '}
