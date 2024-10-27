@@ -10,51 +10,69 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import './App.css';
 
-const apiUrl = "https://api.thenewsapi.com/v1/news/top?api_token=p1Kuy373nBPFJWSpkljGnwov4a4QwstLohH75K0s&locale=us&limit=1"
-// const apiUrl = `https://api.thenewsapi.com/v1/news/top?api_token=${process.env.REACT_APP_API_KEY}&locale=uk&limit=1`
-
 async function apiCall() {
   try {
-    console.log(apiUrl)
-    const response = await fetch(apiUrl, {
+    const response = await fetch("http://127.0.0.1:5000/", {
       method: 'GET'
     });
     const data = await response.json();
-    const headline = data.data[0].title;  // Get the first headline
-    return headline;  // Return the headline so we can use it in App
+    return data;  // Return the headline so we can use it in App
   } catch (error) {
-    console.error('Error:', error);
-    return '';  // Return an empty string in case of error
+      console.error('Error:', error);
+      return '';  // Return an empty string in case of error
   }
 }
 
 function App() {
 
   const [headlines, setHeadlines] = useState('');
+  const [moodsData, setMoods] = useState('');
 
   useEffect(() => {
     async function fetchHeadlines() {
-      const headlineData = await apiCall();
-      setHeadlines(headlineData);
+      const data = await apiCall();
+      setHeadlines(data.newsTitle);
+      setMoods(data.estimated_mood);
     }
-
     fetchHeadlines();
   }, []);
 
-  let moods = "negative";
+  const maxMood = Math.max(...moodsData);
+  if (isNaN(maxMood)) {
+    console.error("Invalid maxMood value.");
+  }
+  
+  var moodArray = [];
+  for (let i = 0; i < moodsData.length; i++) {
+    const moodValue = moodsData[i];
+    
+    if (isNaN(moodValue)) {
+      console.warn(`NaN encountered at index ${i}. Using default value.`);
+      moodArray.push(0);
+    } else if (moodValue === maxMood) {
+      moodArray.push(100);
+    } else if (moodValue > -2.0) {
+      moodArray.push(50);
+    } else {
+      moodArray.push(0);
+    }
+  }
+
+  moodArray = moodArray.map(value => (isNaN(value) ? 0 : value));
 
   return (
     <div className="App">
       <Header></Header>
       <Headline headline = {headlines}></Headline>
       <Container>
-        <Row>
-          <Col><Chart></Chart></Col>
-          <Col>
-            
-            <Faces mood = {moods}></Faces>
-          </Col>
-        </Row>
+        <Col>
+          <Row>
+            <Faces moodArray = {moodArray}></Faces>
+          </Row>
+          <Row>
+            <Chart moodArray = {moodArray}></Chart>
+          </Row>
+        </Col>
     </Container>
       <Footer></Footer>
     </div>

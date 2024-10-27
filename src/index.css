@@ -13,7 +13,7 @@ code {
 }
 
 .chart{
-  width: 50vw;
+  width: 100vw;
   height: 80vh;
 }
 
@@ -33,7 +33,7 @@ code {
   padding-left: 100px;
 }
 
-.faces{
+/* .faces{
   text-align: center;
   display:flex; 
   justify-content: center;
@@ -43,10 +43,10 @@ code {
   display: flex;
   align-items: center; 
   justify-content: center;
-}
+} */
 
 #mood{
-  font-size: 300px;
+  font-size: 100px;
 }
 
 #moodText{
