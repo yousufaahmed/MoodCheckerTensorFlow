@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import json
-import pickle
 import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 from model import DistilBERTClass
