@@ -14,6 +14,10 @@ Sri Guhanthan
 * **Source:** [GitHub Repository](https://github.com/yousufaahmed/MoodCheckerTensorFlow)
 ## Running the Frontend
 
+Use
+```npm install```
+to download npm packages
+
 Use 
 ```npm start```
 
@@ -26,3 +30,11 @@ to run the virtual environment
 Use
 ```source env/bin/activate```
 to enter the environment
+
+Use 
+```pip install requirements.txt```
+to download pip packages
+
+Run by
+```cd ai_backend```
+```python server.py```
