@@ -1,7 +1,8 @@
 # Sentiment analysis of Top News
 ## Project Details
 
-Made using Reactjs frontend, Flask Python backend
+Made using Reactjs frontend, axios for http requests, Flask Python backend.
+OpenAI API and other crypto sites.
 ## Contributors
 
 Yousuf Ahmed
@@ -38,3 +39,5 @@ to download pip packages
 Run by
 ```cd ai_backend```
 ```python server.py```
+
+Will have to create a .env file which would contain an OpenAI API key and a Tavily API key.
